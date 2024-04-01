@@ -2,6 +2,7 @@
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, InboxIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { SEO, socials } from "@/utils/company";
+import { animateScroll as scroll } from "react-scroll";
 
 const navigation = [
   { name: "Home", href: "#", current: true },
@@ -32,6 +33,10 @@ function classNames(...classes: any[]) {
 }
 
 export default function Navbar() {
+  const scrollToTop = () => {
+    scroll.scrollToTop({ duration: 500 });
+  };
+
   return (
     <Disclosure as="header" className="bg-white shadow">
       {({ open }) => (
@@ -40,15 +45,19 @@ export default function Navbar() {
             <div className="relative flex h-16 justify-between">
               <div className="relative z-10 flex px-2 lg:px-0">
                 <div className="flex flex-shrink-0 items-center">
-                  <img
-                    className="h-10 w-auto"
-                    src={SEO.logo_light}
-                    alt="Reimmagined logo"
-                  />
+                  <button onClick={scrollToTop}>
+                    <img
+                      className="h-10 w-auto"
+                      src={SEO.logo_light}
+                      alt="Reimmagined logo"
+                    />
+                  </button>
                 </div>
               </div>
               <div className="relative z-0 flex flex-1 items-center justify-center px-2 sm:absolute sm:inset-0">
-                <h1 className={"font-black"}>REIMMAGINED</h1>
+                <button onClick={scrollToTop}>
+                  <h1 className={"font-black"}>REIMMAGINED</h1>
+                </button>
               </div>
               <div className="relative z-10 flex items-center lg:hidden">
                 {/* Mobile menu button */}
