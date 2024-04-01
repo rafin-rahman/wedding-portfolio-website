@@ -69,7 +69,7 @@ export default function Navbar() {
                   className="relative flex-shrink-0 rounded-full bg-white p-1 text-gray-600 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-yellow-300 focus:ring-offset-2"
                 >
                   <span className="absolute -inset-1.5" />
-                  <span className="sr-only">Book now</span>
+                  <span className="sr-only">Book now </span>
 
                   <span className={"flex gap-2"}>
                     {" "}
