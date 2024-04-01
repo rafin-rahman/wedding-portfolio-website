@@ -1,4 +1,5 @@
 import { getCurrentYear } from "@/utils/dateFunctions";
+import { socials } from "@/utils/company";
 
 const navigation = {
   main: [
@@ -10,7 +11,7 @@ const navigation = {
   social: [
     {
       name: "Instagram",
-      href: "#",
+      href: socials.instagram,
       icon: (props: React.SVGProps<SVGSVGElement>) => (
         <span className="[&>svg]:h-5 [&>svg]:w-5">
           <svg
@@ -25,7 +26,7 @@ const navigation = {
     },
     {
       name: "TikTok",
-      href: "#",
+      href: socials.tiktok,
       icon: (props: React.SVGProps<SVGSVGElement>) => (
         <span className="[&>svg]:h-5 [&>svg]:w-5">
           <svg
