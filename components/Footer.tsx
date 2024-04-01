@@ -8,6 +8,7 @@ const navigation = {
     { name: "Jobs", href: "#" },
     { name: "Refer", href: "#" },
   ],
+  // social media icons taken from =>  https://tw-elements.com/docs/standard/components/social-buttons/
   social: [
     {
       name: "Instagram",
@@ -41,7 +42,7 @@ const navigation = {
     },
   ],
 };
-// social media icons taken from =>  https://tw-elements.com/docs/standard/components/social-buttons/
+
 export default function Example() {
   return (
     <footer className="bg-white">

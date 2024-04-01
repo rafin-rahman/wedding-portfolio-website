@@ -3,10 +3,11 @@ import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, InboxIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { SEO, socials } from "@/utils/company";
 import { animateScroll as scroll } from "react-scroll";
+import { motion, useScroll, useSpring } from "framer-motion";
 
 const navigation = [
-  { name: "Home", href: "#", current: true },
-  { name: "About", href: "#", current: false },
+  { name: "Home", href: "/", current: true },
+  { name: "About", href: "about", current: false },
   { name: "Contact us", href: "#", current: false },
 ];
 const socialMedia = [
@@ -33,14 +34,27 @@ function classNames(...classes: any[]) {
 }
 
 export default function Navbar() {
+  // used to scroll to top
   const scrollToTop = () => {
     scroll.scrollToTop({ duration: 500 });
   };
+
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001,
+  });
 
   return (
     <Disclosure as="header" className="bg-white shadow">
       {({ open }) => (
         <>
+          {/* used to animate the line on top of the navbar when scrolling*/}
+          <motion.div
+            className="fixed top-0 left-0 right-0 h-1 bg-yellow-400 transform origin-left"
+            style={{ scaleX }}
+          />
           <div className="mx-auto max-w-7xl px-2 sm:px-4 lg:divide-y lg:divide-yellow-400 lg:px-8">
             <div className="relative flex h-16 justify-between">
               <div className="relative z-10 flex px-2 lg:px-0">
@@ -71,7 +85,6 @@ export default function Navbar() {
                   )}
                 </Disclosure.Button>
               </div>
-
               <div className="hidden lg:relative lg:z-10 lg:ml-4 lg:flex lg:items-center">
                 <button
                   type="button"
@@ -128,7 +141,6 @@ export default function Navbar() {
               </div>
             </nav>
           </div>
-
           <Disclosure.Panel as="nav" className="lg:hidden" aria-label="Global">
             <div className="space-y-1 px-2 pb-3 pt-2">
               {navigation.map((item) => (
