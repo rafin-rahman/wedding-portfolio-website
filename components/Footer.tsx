@@ -3,8 +3,8 @@ import { socials } from "@/utils/company";
 
 const navigation = {
   main: [
-    { name: "About", href: "#" },
-    { name: "Contact", href: "#" },
+    { name: "About", href: "/about" },
+    { name: "Contact", href: "/contact" },
     { name: "Jobs", href: "#" },
     { name: "Refer", href: "#" },
   ],
@@ -65,6 +65,7 @@ export default function Example() {
         <div className="mt-10 flex justify-center space-x-10">
           {navigation.social.map((item) => (
             <a
+              target={"_blank"}
               key={item.name}
               href={item.href}
               className="text-gray-400 hover:text-gray-500"

@@ -4,11 +4,13 @@ import { Bars3Icon, InboxIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { SEO, socials } from "@/utils/company";
 import { animateScroll as scroll } from "react-scroll";
 import { motion, useScroll, useSpring } from "framer-motion";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 const navigation = [
   { name: "Home", href: "/", current: true },
-  { name: "About", href: "about", current: false },
-  { name: "Contact us", href: "contact", current: false },
+  { name: "About", href: "/about", current: false },
+  { name: "Contact us", href: "/contact", current: false },
 ];
 const socialMedia = [
   {
@@ -28,6 +30,8 @@ function classNames(...classes: any[]) {
 }
 
 export default function Navbar() {
+  const pathname = usePathname();
+  console.log(pathname);
   // used to scroll to top
   const scrollToTop = () => {
     scroll.scrollToTop({ duration: 500 });
@@ -80,19 +84,21 @@ export default function Navbar() {
                 </Disclosure.Button>
               </div>
               <div className="hidden lg:relative lg:z-10 lg:ml-4 lg:flex lg:items-center">
-                <button
-                  type="button"
-                  className="relative flex-shrink-0 rounded-full bg-white p-1 text-gray-600 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-yellow-300 focus:ring-offset-2"
-                >
-                  <span className="absolute -inset-1.5" />
-                  <span className="sr-only">Book now </span>
+                <Link href={"/contact"}>
+                  <button
+                    type="button"
+                    className="relative flex-shrink-0 rounded-full bg-white p-1 text-gray-600 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-yellow-300 focus:ring-offset-2"
+                  >
+                    <span className="absolute -inset-1.5" />
+                    <span className="sr-only">Book now </span>
 
-                  <span className={"flex gap-2"}>
-                    {" "}
-                    <InboxIcon className="h-6 w-6" aria-hidden="true" />
-                    Book now
-                  </span>
-                </button>
+                    <span className={"flex gap-2"}>
+                      {" "}
+                      <InboxIcon className="h-6 w-6" aria-hidden="true" />
+                      Book now
+                    </span>
+                  </button>
+                </Link>
               </div>
             </div>
             <nav
@@ -105,7 +111,7 @@ export default function Navbar() {
                     key={item.name}
                     href={item.href}
                     className={classNames(
-                      item.current
+                      pathname === item.href
                         ? "bg-yellow-400 text-gray-900"
                         : "text-gray-900 hover:bg-yellow-50 hover:text-gray-900",
                       "inline-flex items-center rounded-md py-2 px-3 text-sm font-medium"
