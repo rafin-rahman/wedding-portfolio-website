@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export default function about() {
+export default function About() {
   return (
     <div className={"container mx-auto"}>
       <div className={"sm:flex justify-center text-center sm:text-left"}>

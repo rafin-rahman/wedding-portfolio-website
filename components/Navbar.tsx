@@ -1,5 +1,5 @@
 "use client";
-import { Disclosure, Menu, Transition } from "@headlessui/react";
+import { Disclosure } from "@headlessui/react";
 import { Bars3Icon, InboxIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { SEO, socials } from "@/utils/company";
 import { animateScroll as scroll } from "react-scroll";
@@ -8,7 +8,7 @@ import { motion, useScroll, useSpring } from "framer-motion";
 const navigation = [
   { name: "Home", href: "/", current: true },
   { name: "About", href: "about", current: false },
-  { name: "Contact us", href: "#", current: false },
+  { name: "Contact us", href: "contact", current: false },
 ];
 const socialMedia = [
   {
@@ -21,12 +21,6 @@ const socialMedia = [
     href: socials.tiktok,
     icon: "tiktok.png",
   },
-];
-
-const userNavigation = [
-  { name: "Your Profile", href: "#" },
-  { name: "Settings", href: "#" },
-  { name: "Sign out", href: "#" },
 ];
 
 function classNames(...classes: any[]) {
