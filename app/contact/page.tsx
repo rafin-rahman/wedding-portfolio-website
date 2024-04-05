@@ -14,6 +14,7 @@ export default function Contact() {
 
     // setting up the jotform
     scriptElement.onload = () => {
+      //@ts-ignore
       window.jotformEmbedHandler(
         "iframe[id='JotFormIFrame-240946916551059']",
         "https://form.jotform.com/"
