@@ -68,7 +68,7 @@ export default function Navbar() {
               </div>
               <div className="relative z-0 flex flex-1 items-center justify-center px-2 sm:absolute sm:inset-0">
                 <button onClick={scrollToTop}>
-                  <h1 className={"font-black"}>REIMMAGINED</h1>
+                  <h1 className={"font-black"}>Films Reimagined</h1>
                 </button>
               </div>
               <div className="relative z-10 flex items-center lg:hidden">

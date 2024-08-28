@@ -76,7 +76,7 @@ export default function Example() {
           ))}
         </div>
         <p className="mt-10 text-center text-xs leading-5 text-gray-500">
-          &copy; {getCurrentYear()} Photography Reimmagined.
+          &copy; {getCurrentYear()} Films Reimagined.
         </p>
       </div>
     </footer>

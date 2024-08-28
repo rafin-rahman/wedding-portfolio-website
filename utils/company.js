@@ -1,9 +1,9 @@
 // This page will contain information about the company
 
 export const SEO = {
-  companyName: "Reimmagined",
-  subtitle: "Photography Reimmagined",
-  description: "Photography & Videography",
+  companyName: "Films Reimagined",
+  subtitle: "Films Reimagined",
+  description: "Videography & Photography",
   logo_dark: "",
   logo_light: "images/logo/logo.png",
   image: "",

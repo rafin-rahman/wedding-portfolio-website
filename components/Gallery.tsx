@@ -6,11 +6,11 @@ const files = [
     source: "/images/gallery/wedding_1.jpg",
   },
   {
-    title: "Mehendi",
+    title: "Mehndi",
     source: "/images/gallery/mehendi_1.jpg",
   },
   {
-    title: "Nikkah",
+    title: "Nikah",
 
     source: "/images/gallery/nikkah_1.jpg",
   },
