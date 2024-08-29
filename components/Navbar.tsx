@@ -73,7 +73,7 @@ export default function Navbar() {
               </div>
               <div className="relative z-10 flex items-center lg:hidden">
                 {/* Mobile menu button */}
-                <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-yellow-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-yellow-300">
+                <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-300">
                   <span className="absolute -inset-0.5" />
                   <span className="sr-only">Open menu</span>
                   {open ? (
@@ -87,7 +87,7 @@ export default function Navbar() {
                 <Link href={"/contact"}>
                   <button
                     type="button"
-                    className="relative flex-shrink-0 rounded-full bg-white p-1 text-gray-600 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-yellow-300 focus:ring-offset-2"
+                    className="relative flex-shrink-0 rounded-full bg-white p-1 text-gray-600 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2"
                   >
                     <span className="absolute -inset-1.5" />
                     <span className="sr-only">Book now </span>
@@ -150,8 +150,8 @@ export default function Navbar() {
                   href={item.href}
                   className={classNames(
                     item.current
-                      ? "bg-yellow-100 text-gray-900"
-                      : "text-gray-900 hover:bg-yellow-50 hover:text-gray-900",
+                      ? "bg-gray-100 text-gray-900"
+                      : "text-gray-900 hover:bg-gray-50 hover:text-gray-900",
                     "block rounded-md py-2 px-3 text-base font-medium"
                   )}
                   aria-current={item.current ? "page" : undefined}
