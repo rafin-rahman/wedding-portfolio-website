@@ -50,16 +50,16 @@ export default function Navbar() {
         <>
           {/* used to animate the line on top of the navbar when scrolling*/}
           <motion.div
-            className="fixed top-0 left-0 right-0 h-1 bg-yellow-400 transform origin-left"
+            className="fixed top-0 left-0 right-0 h-1 bg-gray-900 transform origin-left"
             style={{ scaleX }}
           />
-          <div className="mx-auto max-w-7xl px-2 sm:px-4 lg:divide-y lg:divide-yellow-400 lg:px-8">
+          <div className="mx-auto max-w-7xl px-2 sm:px-4 lg:divide-y lg:divide-gray-400 lg:px-8">
             <div className="relative flex h-16 justify-between">
               <div className="relative z-10 flex px-2 lg:px-0">
                 <div className="flex flex-shrink-0 items-center">
                   <button onClick={scrollToTop}>
                     <img
-                      className="h-10 w-auto"
+                      className="h-16 w-auto"
                       src={SEO.logo_light}
                       alt="Reimmagined logo"
                     />
@@ -112,8 +112,8 @@ export default function Navbar() {
                     href={item.href}
                     className={classNames(
                       pathname === item.href
-                        ? "bg-yellow-400 text-gray-900"
-                        : "text-gray-900 hover:bg-yellow-50 hover:text-gray-900",
+                        ? "bg-gray-900 text-white"
+                        : "text-gray-900 hover:bg-gray-50 hover:text-gray-900",
                       "inline-flex items-center rounded-md py-2 px-3 text-sm font-medium"
                     )}
                     aria-current={item.current ? "page" : undefined}
