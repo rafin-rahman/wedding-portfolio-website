@@ -1,6 +1,6 @@
 import { getCurrentYear } from "@/utils/dateFunctions";
-import { socials } from "@/utils/company";
-
+import {SEO, socials} from "@/utils/company";
+import Image from "next/image";
 const navigation = {
   main: [
     { name: "About", href: "/about" },
@@ -62,13 +62,18 @@ export default function Example() {
             </div>
           ))}
         </nav>
-        <div className="mt-10 flex justify-center space-x-10">
+        <div className="mt-10 items-center flex justify-center space-x-10">
+          <img
+              className="h-12 w-auto"
+              src={SEO.logo_light}
+              alt="Reimmagined logo"
+          />
           {navigation.social.map((item) => (
-            <a
-              target={"_blank"}
-              key={item.name}
-              href={item.href}
-              className="text-gray-400 hover:text-gray-500"
+              <a
+                  target={"_blank"}
+                  key={item.name}
+                  href={item.href}
+                  className="text-gray-400 hover:text-gray-500"
             >
               <span className="sr-only">{item.name}</span>
               <item.icon className="h-6 w-6" aria-hidden="true" />
@@ -76,7 +81,7 @@ export default function Example() {
           ))}
         </div>
         <p className="mt-10 text-center text-xs leading-5 text-gray-500">
-          &copy; {getCurrentYear()} Films Reimagined.
+          &copy; {getCurrentYear()} Films Reimagined
         </p>
       </div>
     </footer>

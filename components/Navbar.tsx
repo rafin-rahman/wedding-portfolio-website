@@ -59,16 +59,16 @@ export default function Navbar() {
                 <div className="flex flex-shrink-0 items-center">
                   <button onClick={scrollToTop}>
                     <img
-                      className="h-16 w-auto"
+                      className="h-12 w-auto"
                       src={SEO.logo_light}
                       alt="Reimmagined logo"
                     />
                   </button>
                 </div>
               </div>
-              <div className="relative z-0 flex flex-1 items-center justify-center px-2 sm:absolute sm:inset-0">
+              <div className="relative z-0 flex flex-1 items-center justify-center px-2 sm:absolute sm:inset-0 ">
                 <button onClick={scrollToTop}>
-                  <h1 className={"font-black"}>Films Reimagined</h1>
+                  <h1 className={"font-black hidden sm:block"}>Films Reimagined</h1>
                 </button>
               </div>
               <div className="relative z-10 flex items-center lg:hidden">
