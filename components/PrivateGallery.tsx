@@ -1,20 +1,20 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, {useState, useEffect, useRef} from "react";
 
-type GalleryItem = {
+export type PrivateGalleryItem = {
     type: "photo" | "video" | "html";
     content: string;
 };
 
 interface GalleryProps {
-    items: GalleryItem[];
+    items: PrivateGalleryItem[];
 }
 
-const Gallery: React.FC<GalleryProps> = ({ items }) => {
-    const [loadedItems, setLoadedItems] = useState<GalleryItem[]>([]);
+const PrivateGallery: React.FC<GalleryProps> = ({items}) => {
+    const [loadedItems, setLoadedItems] = useState<PrivateGalleryItem[]>([]);
     const [visibleItems, setVisibleItems] = useState<number>(12); // Number of items to load initially
-    const [selectedItem, setSelectedItem] = useState<GalleryItem | null>(null); // Modal state
+    const [selectedItem, setSelectedItem] = useState<PrivateGalleryItem | null>(null); // Modal state
     const containerRef = useRef<HTMLDivElement | null>(null);
 
     // Load more items as the user scrolls
@@ -26,7 +26,7 @@ const Gallery: React.FC<GalleryProps> = ({ items }) => {
                     setVisibleItems((prev) => Math.min(prev + 12, items.length));
                 }
             },
-            { root: null, threshold: 1.0 }
+            {root: null, threshold: 1.0}
         );
 
         if (containerRef.current) {
@@ -63,7 +63,7 @@ const Gallery: React.FC<GalleryProps> = ({ items }) => {
         return "col-span-1 row-span-1";
     };
 
-    const handleItemClick = (item: GalleryItem) => {
+    const handleItemClick = (item: PrivateGalleryItem) => {
         setSelectedItem(item); // Show the modal with the selected item
     };
 
@@ -93,7 +93,7 @@ const Gallery: React.FC<GalleryProps> = ({ items }) => {
                 {loadedItems.slice(0, visibleItems).map((item, index) => (
                     <div
                         key={index}
-                        className={`overflow-hidden rounded-md shadow-md animate-fade-in ${getGridSpan(
+                        className={`overflow-hidden  shadow-md animate-fade-in ${getGridSpan(
                             index
                         )}`}
                         onClick={() => handleItemClick(item)} // Handle click event
@@ -108,10 +108,14 @@ const Gallery: React.FC<GalleryProps> = ({ items }) => {
                         )}
                         {item.type === "video" && (
                             <video
-                                controls
+                                controls={false}
+                                muted
+                                autoPlay
+                                loop
+                                playsInline
                                 className="w-full h-full object-cover transition-transform duration-300 hover:scale-105 cursor-pointer"
                             >
-                                <source src={item.content} type="video/mp4" />
+                                <source src={item.content} type="video/mp4"/>
                                 Your browser does not support the video tag.
                             </video>
                         )}
@@ -133,15 +137,10 @@ const Gallery: React.FC<GalleryProps> = ({ items }) => {
                     onClick={closeModal} // Close modal on outside click
                 >
                     <div
-                        className="relative bg-white rounded-md overflow-hidden shadow-lg w-[90%] sm:w-[70%] lg:w-[50%]"
+                        className="relative bg-white bg-opacity-90 overflow-hidden shadow-lg w-[90%] sm:w-[70%] lg:w-[50%]"
                         onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside
                     >
-                        <button
-                            className="absolute top-4 right-4 text-gray-500 hover:text-gray-900 text-2xl"
-                            onClick={closeModal}
-                        >
-                            &times;
-                        </button>
+
                         <div className="p-4">
                             {selectedItem.type === "photo" && (
                                 <img
@@ -155,7 +154,7 @@ const Gallery: React.FC<GalleryProps> = ({ items }) => {
                                     controls
                                     className="w-full h-auto"
                                 >
-                                    <source src={selectedItem.content} type="video/mp4" />
+                                    <source src={selectedItem.content} type="video/mp4"/>
                                     Your browser does not support the video tag.
                                 </video>
                             )}
@@ -163,7 +162,7 @@ const Gallery: React.FC<GalleryProps> = ({ items }) => {
                                 <a
                                     href={selectedItem.content}
                                     download
-                                    className="inline-block px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
+                                    className="inline-block px-4 py-2 bg-gray-800 text-white  hover:bg-blue-700 transition"
                                 >
                                     Download
                                 </a>
@@ -176,4 +175,4 @@ const Gallery: React.FC<GalleryProps> = ({ items }) => {
     );
 };
 
-export default Gallery;
+export default PrivateGallery;
