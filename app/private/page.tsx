@@ -3,13 +3,10 @@
 import PrivateGallery from "@/components/PrivateGallery";
 import {MonteCarlo} from "next/font/google";
 import type {PrivateGalleryItem} from "@/components/PrivateGallery"
-import {listFiles} from "@/utils/backblaze";
-import {useEffect, useState} from "react";
 
 const cursiveFont = MonteCarlo({weight: "400", subsets: ["latin"]});
 
 export default function Private() {
-    const [files, setFiles] = useState([]);
     const galleryItems: PrivateGalleryItem[] = [
         {
             type: "photo",
@@ -66,36 +63,14 @@ export default function Private() {
 
 
 
-    useEffect(() => {
-        async function fetchFiles() {
-            const response = await fetch('/api/get-folder-lists');
-            const fileList = await response.json();
-            setFiles(fileList);
-        }
 
-        fetchFiles();
-    }, []);
 
 
 
     return (
         <div className="p-4">
 
-            <div className="p-4">
-                <div>
-                    <h1>File List</h1>
-                    <ul>
-                        {files.map((file) => (
-                            <li key={file.fileName}>
-                                <a href={file.url} target="_blank" rel="noopener noreferrer">
-                                    {file.fileName}
-                                </a>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-                {/* Rest of your component */}
-            </div>
+
             <h1 className={`${cursiveFont.className}  font-bold text-center mx-6 text-5xl leading-7`}>Sakina and
                 Muhamed <br/>
                 <br/> Nikah</h1>
