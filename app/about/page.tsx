@@ -3,18 +3,24 @@ import companyConfigs, { defaultBrandKey } from "@/utils/company.config";
 import { headers } from "next/headers";
 
 export default async function About() {
-  // Get headers
-  const headersList = await headers();
   // Get the x-brand header or default
-  const brandKey = headersList.get("x-brand")?.toLowerCase() || defaultBrandKey;
-  // Log the resolved brandKey
-  console.log("[About Page] Resolved Brand Key:", brandKey);
+  const headersList = await headers();
+  const brandKey = headersList.get("x-brand")?.toLowerCase() || defaultBrandKey.toLowerCase();
 
-  // Validate the brandKey exists in companyConfigs
-  const brand = companyConfigs[brandKey] || companyConfigs[defaultBrandKey];
+  // Normalize keys in companyConfigs to lowercase
+  const normalizedConfigs = Object.keys(companyConfigs).reduce((acc, key) => {
+    acc[key.toLowerCase()] = companyConfigs[key];
+    return acc;
+  }, {} as Record<string, typeof companyConfigs[keyof typeof companyConfigs]>);
 
-  // Log the resolved brand object
-  console.log("[About Page] Resolved Brand Object:", brand);
+  // Resolve the brand
+  const brand = normalizedConfigs[brandKey] || normalizedConfigs[defaultBrandKey.toLowerCase()];
+
+  // Ensure brand exists
+  if (!brand) {
+    throw new Error(`Brand not found for key: ${brandKey}`);
+  }
+
 
   return (
     <div className={"container mx-auto"}>
