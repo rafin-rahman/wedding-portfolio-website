@@ -3,9 +3,14 @@ import companyConfigs, { defaultBrandKey } from "@/utils/company.config";
 import { headers } from "next/headers";
 
 export default async function About() {
+  // Get headers
   const headersList = await headers();
+
+  // Get the x-brand header or default
   const brandKey = headersList.get("x-brand") || defaultBrandKey;
-  const brand = companyConfigs[brandKey];
+
+  // Validate the brandKey exists in companyConfigs
+  const brand = companyConfigs[brandKey] || companyConfigs[defaultBrandKey];
 
   return (
     <div className={"container mx-auto"}>
