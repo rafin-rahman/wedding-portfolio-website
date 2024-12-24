@@ -6,11 +6,20 @@ export default async function About() {
   // Get headers
   const headersList = await headers();
 
+  // Log headers received
+  console.log("[About Page] Headers List:", headersList);
+
   // Get the x-brand header or default
   const brandKey = headersList.get("x-brand")?.toLowerCase() || defaultBrandKey;
 
+  // Log the resolved brandKey
+  console.log("[About Page] Resolved Brand Key:", brandKey);
+
   // Validate the brandKey exists in companyConfigs
   const brand = companyConfigs[brandKey] || companyConfigs[defaultBrandKey];
+
+  // Log the resolved brand object
+  console.log("[About Page] Resolved Brand Object:", brand);
 
   return (
     <div className={"container mx-auto"}>
