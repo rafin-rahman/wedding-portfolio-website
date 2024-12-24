@@ -14,6 +14,10 @@ export function middleware(request: NextRequest) {
     // Determine brand key or fallback to default
     const brandKey = domainToBrandMap[host || ""] || defaultBrandKey;
 
+    // Debugging
+    console.log("Host:", host);
+    console.log("Resolved Brand Key:", brandKey);
+
     // Add brand key to response headers
     const response = NextResponse.next();
     response.headers.set("x-brand", brandKey);

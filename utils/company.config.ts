@@ -1,5 +1,4 @@
 // company.config.ts
-
 export type CompanyConfig = {
     companyName: string;
     tagline: string;
