@@ -49,6 +49,6 @@ export const companyConfigs: Record<string, CompanyConfig> = {
 };
 
 // Default brand for local development
-export const defaultBrandKey = "filmsreimagined.com";
+export const defaultBrandKey = "filmsreimagined";
 
 export default companyConfigs;
