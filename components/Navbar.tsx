@@ -7,6 +7,7 @@ import { motion, useScroll, useSpring } from "framer-motion";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 
+
 const navigation = [
   { name: "Home", href: "/", current: true },
   { name: "About", href: "/about", current: false },
@@ -43,6 +44,8 @@ export default function Navbar() {
     damping: 30,
     restDelta: 0.001,
   });
+
+
 
   return (
     <Disclosure as="header" className="bg-white shadow">

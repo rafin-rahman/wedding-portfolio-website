@@ -14,7 +14,7 @@
     "axios": "^1.7.9",
     "clsx": "^2.1.0",
     "framer-motion": "^11.0.24",
-    "next": "14.1.4",
+    "next": "15.1.2",
     "pro-gallery": "^5.0.110",
     "react": "^18",
     "react-dom": "^18",

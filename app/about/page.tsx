@@ -1,11 +1,17 @@
 import Image from "next/image";
+import companyConfigs, { defaultBrandKey } from "@/utils/company.config";
+import { headers } from "next/headers";
 
-export default function About() {
+export default async function About() {
+  const headersList = await headers();
+  const brandKey = headersList.get("x-brand") || defaultBrandKey;
+  const brand = companyConfigs[brandKey];
+
   return (
     <div className={"container mx-auto"}>
       <div className={"sm:flex justify-center text-center sm:text-left"}>
         <div className="sm:mt-60 sm:w-[50%]">
-          <h1 className={"text-4xl"}>About</h1>
+          <h1 className={"text-4xl"}>About {brand.companyName}</h1>
           <p className={"text-2xl"}>Photography Reimagined</p>
           <br />
           <p className={"sm:max-w-[80%] mb-10 sm:mb-0 mx-10 sm:mx-0"}>
