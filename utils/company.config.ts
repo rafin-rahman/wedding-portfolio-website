@@ -35,7 +35,7 @@ export const companyConfigs: Record<string, CompanyConfig> = {
         companyName: "The Hijabi Photographer",
         tagline: "Capturing Timeless Moments",
         description: "Asian Wedding Photography and Videography",
-        logo: "/images/thehijabi-logo.png",
+        logo: "thehijabiphotographer/logo/dark-logo.png",
         contactEmail: "contact@thehijabiphotographer.com",
         incorporationYear: 2024,
         keywords: ["photography", "videography", "wedding", "corporate"],

@@ -6,6 +6,7 @@ import { animateScroll as scroll } from "react-scroll";
 import { motion, useScroll, useSpring } from "framer-motion";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import {useBrand} from "@/utils/brandContext";
 
 
 const navigation = [
@@ -45,7 +46,7 @@ export default function Navbar() {
     restDelta: 0.001,
   });
 
-
+  const brand = useBrand();
 
   return (
     <Disclosure as="header" className="bg-white shadow">
@@ -71,7 +72,7 @@ export default function Navbar() {
               </div>
               <div className="relative z-0 flex flex-1 items-center justify-center px-2 sm:absolute sm:inset-0 ">
                 <button onClick={scrollToTop}>
-                  <h1 className={"font-black hidden sm:block"}>Films Reimagined</h1>
+                  <h1 className={"font-black hidden sm:block"}>{brand.companyName}</h1>
                 </button>
               </div>
               <div className="relative z-10 flex items-center lg:hidden">

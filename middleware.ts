@@ -14,6 +14,12 @@ export function middleware(request: NextRequest) {
     // Normalize host (remove "www." if present)
     const host = rawHost.startsWith("www.") ? rawHost.slice(4) : rawHost;
 
+    // Bypass validation for localhost
+    if (host.startsWith("localhost")) {
+        console.log(`Bypassing host validation for: ${host}`);
+        return NextResponse.next();
+    }
+
     // Validate host and determine brand key
     const brandKey = allowedHosts[host] || defaultBrandKey;
 
