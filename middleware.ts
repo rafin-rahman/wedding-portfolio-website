@@ -3,17 +3,23 @@ import type {NextRequest} from "next/server";
 import {defaultBrandKey} from "./utils/company.config";
 
 export function middleware(request: NextRequest) {
-    const host = request.headers.get("host") || "";
+    const rawHost = request.headers.get("host") || "";
 
-    // Determine brand key based on substrings in the host
-    let brandKey: string;
+    // Define mapping of hosts to brand keys
+    const allowedHosts: Record<string, string> = {
+        "filmsreimagined.com": "filmsreimagined",
+        "thehijabiphotographer.com": "thehijabiphotographer",
+    };
 
-    if (host.includes("filmsreimagined")) {
-        brandKey = "filmsreimagined";
-    } else if (host.includes("thehijabiphotographer")) {
-        brandKey = "thehijabiphotographer";
-    } else {
-        brandKey = defaultBrandKey;
+    // Normalize host (remove "www." if present)
+    const host = rawHost.startsWith("www.") ? rawHost.slice(4) : rawHost;
+
+    // Validate host and determine brand key
+    const brandKey = allowedHosts[host] || defaultBrandKey;
+
+    if (!allowedHosts[host]) {
+        console.error(`Invalid host: ${host}`);
+        return new NextResponse("Invalid host", {status: 403});
     }
 
     // Add brand key to response headers
