@@ -5,13 +5,8 @@ import { headers } from "next/headers";
 export default async function About() {
   // Get headers
   const headersList = await headers();
-
-  // Log headers received
-  console.log("[About Page] Headers List:", headersList);
-
   // Get the x-brand header or default
   const brandKey = headersList.get("x-brand")?.toLowerCase() || defaultBrandKey;
-
   // Log the resolved brandKey
   console.log("[About Page] Resolved Brand Key:", brandKey);
 
