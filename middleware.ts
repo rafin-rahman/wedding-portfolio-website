@@ -1,26 +1,28 @@
 // middleware.ts
-import {NextResponse} from 'next/server';
-import type {NextRequest} from 'next/server';
-import companyConfigs, {defaultBrandKey} from './utils/company.config';
+import {NextResponse} from "next/server";
+import type {NextRequest} from "next/server";
+import companyConfigs, {defaultBrandKey} from "./utils/company.config";
 
 export function middleware(request: NextRequest) {
-    const host = request.headers.get('host') || '';
-    const isLocal = host.startsWith('localhost');
+    const host = request.headers.get("host");
 
-    // Determine brand key
-    const brandKey = isLocal ? defaultBrandKey : host;
+    // Map domains to brand keys
+    const domainToBrandMap: Record<string, string> = {
+        "filmsreimagined.com": "filmsReimagined",
+        "thehijabiphotographer.com": "hijabiPhotographer",
+    };
 
-    // Fallback to default if brand key is not recognized
-    const brand = companyConfigs[brandKey] ? brandKey : defaultBrandKey;
+    // Determine brand key or fallback to default
+    const brandKey = domainToBrandMap[host || ""] || defaultBrandKey;
 
-    // Add brand to response headers
+    // Add brand key to response headers
     const response = NextResponse.next();
-    response.headers.set('x-brand', brand);
+    response.headers.set("x-brand", brandKey);
 
     return response;
 }
 
 // Middleware configuration
 export const config = {
-    matcher: '/:path*',
+    matcher: "/:path*",
 };
