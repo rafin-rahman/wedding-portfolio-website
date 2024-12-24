@@ -12,8 +12,8 @@ const inter = Inter({ subsets: ["latin"] });
 const leagueScript = League_Script({ weight: "400", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Wedding",
-  description: "Your wedding memories",
+  title: "Wedding Photography & Videography",
+  description: "Your wedding memories with us",
 };
 
 
