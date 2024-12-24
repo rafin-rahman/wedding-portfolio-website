@@ -65,7 +65,7 @@ export default function Navbar() {
                     <img
                       className="h-12 w-auto"
                       src={brand.logo_light_banner}
-                      alt="Reimmagined logo"
+                      alt="company logo"
                     />
                   </button>
                 </div>

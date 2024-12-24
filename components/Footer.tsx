@@ -70,7 +70,7 @@ export default async function Example() {
           <img
               className="h-12 w-auto"
               src={brand.logo_light_banner}
-              alt="Reimmagined logo"
+              alt="company logo"
           />
           {navigation.social.map((item) => (
               <a
