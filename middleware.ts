@@ -11,11 +11,14 @@ export function middleware(request: NextRequest) {
         "thehijabiphotographer.com": "thehijabiphotographer",
     };
 
+    // Allow Vercel preview and production domains
+    const isVercelDomain = rawHost.endsWith(".vercel.app");
+
     // Normalize host (remove "www." if present)
     const host = rawHost.startsWith("www.") ? rawHost.slice(4) : rawHost;
 
-    // Bypass validation for localhost
-    if (host.startsWith("localhost")) {
+    // Bypass validation for Vercel domains and localhost
+    if (isVercelDomain || host.startsWith("localhost")) {
         console.log(`Bypassing host validation for: ${host}`);
         return NextResponse.next();
     }
