@@ -3,7 +3,10 @@ import type {NextRequest} from "next/server";
 import {defaultBrandKey} from "./utils/company.config";
 
 export function middleware(request: NextRequest) {
-    const host = request.headers.get("host");
+    const rawHost = request.headers.get("host") || "";
+
+    // Normalize host by removing "www."
+    const host = rawHost.startsWith("www.") ? rawHost.slice(4) : rawHost;
 
     // Map domains to brand keys
     const domainToBrandMap: Record<string, string> = {
@@ -12,10 +15,11 @@ export function middleware(request: NextRequest) {
     };
 
     // Determine brand key or fallback to default
-    const brandKey = domainToBrandMap[host || ""] || defaultBrandKey;
+    const brandKey = domainToBrandMap[host] || defaultBrandKey;
 
     // Debugging
-    console.log("Host:", host);
+    console.log("Raw Host:", rawHost);
+    console.log("Normalized Host:", host);
     console.log("Resolved Brand Key:", brandKey);
 
     // Add brand key to response headers
@@ -27,5 +31,5 @@ export function middleware(request: NextRequest) {
 
 // Middleware configuration
 export const config = {
-    matcher: "/:path*",
+    matcher: "/:path*", // Match all paths
 };
