@@ -1,26 +1,12 @@
 'use client'
 
 import React, { createContext, useContext, ReactNode } from "react";
+import {CompanyConfig} from "./company.config";
 
-// Define the type for the Brand
-export type Brand = {
-    companyName: string;
-    tagline: string;
-    description: string;
-    logo: string;
-    contactEmail: string;
-    incorporationYear: number;
-    keywords: string[];
-    facebook: string;
-    x: string;
-    instagram: string;
-    linkedin: string;
-    youtube: string;
-    tiktok: string;
-};
+
 
 // Create the context
-const BrandContext = createContext<Brand | null>(null);
+const BrandContext = createContext<CompanyConfig | null>(null);
 
 // Custom hook to use the Brand context
 export const useBrand = () => {
@@ -33,7 +19,7 @@ export const useBrand = () => {
 
 // Provider component to wrap the app
 type BrandProviderProps = {
-    value: Brand;
+    value: CompanyConfig;
     children: ReactNode;
 };
 

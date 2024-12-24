@@ -3,7 +3,7 @@ export type CompanyConfig = {
     companyName: string;
     tagline: string;
     description: string;
-    logo: string;
+    logo_light_banner: string;
     contactEmail: string;
     incorporationYear: number;
     keywords: string[];
@@ -20,7 +20,7 @@ export const companyConfigs: Record<string, CompanyConfig> = {
         companyName: "Films Reimagined",
         tagline: "Wedding films",
         description: "Asian Wedding Photography and Videography",
-        logo: "filmsreimagined/logo/dark-logo.png",
+        logo_light_banner: "filmsreimagined/logo/logo-light-banner.png",
         contactEmail: "contact@reimmagined.com",
         incorporationYear: 2024,
         keywords: ["photography", "videography", "wedding", "corporate"],
@@ -35,7 +35,7 @@ export const companyConfigs: Record<string, CompanyConfig> = {
         companyName: "The Hijabi Photographer",
         tagline: "Capturing Timeless Moments",
         description: "Asian Wedding Photography and Videography",
-        logo: "thehijabiphotographer/logo/dark-logo.png",
+        logo_light_banner: "thehijabiphotographer/logo/light-logo.png",
         contactEmail: "contact@thehijabiphotographer.com",
         incorporationYear: 2024,
         keywords: ["photography", "videography", "wedding", "corporate"],

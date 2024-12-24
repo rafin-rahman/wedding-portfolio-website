@@ -64,7 +64,7 @@ export default function Navbar() {
                   <button onClick={scrollToTop}>
                     <img
                       className="h-12 w-auto"
-                      src={SEO.logo_light}
+                      src={brand.logo_light_banner}
                       alt="Reimmagined logo"
                     />
                   </button>

@@ -1,6 +1,7 @@
 import { getCurrentYear } from "@/utils/dateFunctions";
 import {SEO, socials} from "@/utils/company";
-import Image from "next/image";
+import { headers } from "next/headers";
+import companyConfigs, { defaultBrandKey } from "@/utils/company.config";
 const navigation = {
   main: [
     { name: "About", href: "/about" },
@@ -43,7 +44,10 @@ const navigation = {
   ],
 };
 
-export default function Example() {
+export default async function Example() {
+  const headersList = await headers();
+  const brandKey = headersList.get("x-brand") || defaultBrandKey;
+  const brand = companyConfigs[brandKey];
   return (
     <footer className="bg-white">
       <div className="mx-auto max-w-7xl overflow-hidden px-6 py-20 sm:py-24 lg:px-8 text-center">
@@ -65,7 +69,7 @@ export default function Example() {
         <div className="mt-10 items-center flex justify-center space-x-10">
           <img
               className="h-12 w-auto"
-              src={SEO.logo_light}
+              src={brand.logo_light_banner}
               alt="Reimmagined logo"
           />
           {navigation.social.map((item) => (
