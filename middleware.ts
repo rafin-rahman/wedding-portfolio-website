@@ -9,9 +9,9 @@ export function middleware(request: NextRequest) {
     let brandKey: string;
 
     if (host.includes("filmsreimagined")) {
-        brandKey = "filmsReimagined";
+        brandKey = "filmsreimagined";
     } else if (host.includes("thehijabiphotographer")) {
-        brandKey = "theHijabiPhotographer";
+        brandKey = "thehijabiphotographer";
     } else {
         brandKey = defaultBrandKey;
     }

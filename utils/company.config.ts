@@ -16,7 +16,7 @@ export type CompanyConfig = {
 };
 
 export const companyConfigs: Record<string, CompanyConfig> = {
-    "filmsReimagined.com": {
+    "filmsreimagined.com": {
         companyName: "Films Reimagined",
         tagline: "Wedding films",
         description: "Asian Wedding Photography and Videography",
@@ -31,7 +31,7 @@ export const companyConfigs: Record<string, CompanyConfig> = {
         youtube: "",
         tiktok: "https://www.tiktok.com/@films.reimagined",
     },
-    "theHijabiPhotographer.com": {
+    "thehijabiphotographer.com": {
         companyName: "The Hijabi Photographer",
         tagline: "Capturing Timeless Moments",
         description: "Asian Wedding Photography and Videography",
