@@ -3,24 +3,18 @@ import type {NextRequest} from "next/server";
 import {defaultBrandKey} from "./utils/company.config";
 
 export function middleware(request: NextRequest) {
-    const rawHost = request.headers.get("host") || "";
+    const host = request.headers.get("host") || "";
 
-    // Normalize host by removing "www."
-    const host = rawHost.startsWith("www.") ? rawHost.slice(4) : rawHost;
+    // Determine brand key based on substrings in the host
+    let brandKey: string;
 
-    // Map domains to brand keys
-    const domainToBrandMap: Record<string, string> = {
-        "filmsreimagined.com": "filmsReimagined",
-        "thehijabiphotographer.com": "hijabiPhotographer",
-    };
-
-    // Determine brand key or fallback to default
-    const brandKey = domainToBrandMap[host] || defaultBrandKey;
-
-    // Debugging
-    console.log("Raw Host:", rawHost);
-    console.log("Normalized Host:", host);
-    console.log("Resolved Brand Key:", brandKey);
+    if (host.includes("filmsreimagined")) {
+        brandKey = "filmsReimagined";
+    } else if (host.includes("thehijabiphotographer")) {
+        brandKey = "hijabiPhotographer";
+    } else {
+        brandKey = defaultBrandKey;
+    }
 
     // Add brand key to response headers
     const response = NextResponse.next();
