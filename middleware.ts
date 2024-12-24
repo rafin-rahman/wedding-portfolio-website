@@ -1,7 +1,6 @@
-// middleware.ts
 import {NextResponse} from "next/server";
 import type {NextRequest} from "next/server";
-import companyConfigs, {defaultBrandKey} from "./utils/company.config";
+import {defaultBrandKey} from "./utils/company.config";
 
 export function middleware(request: NextRequest) {
     const host = request.headers.get("host");
