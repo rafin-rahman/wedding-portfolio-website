@@ -1,4 +1,5 @@
 import Image from "next/image";
+import {useBrand} from "@/utils/brandContext";
 
 const files = [
   {
@@ -18,20 +19,14 @@ const files = [
     title: "Engagements",
 
     source: "/images/gallery/engagement_1.jpg",
-  },
-  {
-    title: "Corporate",
-
-    source: "/images/gallery/corporate_1.jpg",
-  },
-  {
-    title: "Interviews",
-
-    source: "/images/gallery/interview_1.jpg",
-  },
+  }
 ];
 
-export default function Gallery() {
+export default async function Gallery() {
+
+  const brand = useBrand();
+  console.log(brand);
+
   return (
     <ul
       role="list"
