@@ -22,7 +22,7 @@ const files = [
   }
 ];
 
-export default async function Gallery() {
+export default  function Gallery() {
 
   const brand = useBrand();
   console.log(brand);
