@@ -1,6 +1,10 @@
 "use client";
 import { useEffect } from "react";
+import {useBrand} from "@/utils/brandContext";
+
 export default function Contact() {
+  const brand = useBrand();
+
   useEffect(() => {
     // creating script element
     const scriptElement = document.createElement("script");
@@ -27,7 +31,7 @@ export default function Contact() {
         id="JotFormIFrame-240946916551059"
         title="Enquiry"
         allow="geolocation; microphone; camera; fullscreen"
-        src="https://form.jotform.com/240946916551059"
+        src={`https://form.jotform.com/240946916551059?company=${brand.companyName}`}
         className={"w-full h-[1139px]"}
       ></iframe>
     </div>
