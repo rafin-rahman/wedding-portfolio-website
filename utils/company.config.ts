@@ -1,6 +1,7 @@
 // company.config.ts
 export type CompanyConfig = {
     companyName: string;
+    abbreviation: string;
     tagline: string;
     description: string;
     logo_light_banner: string;
@@ -18,6 +19,7 @@ export type CompanyConfig = {
 export const companyConfigs: Record<string, CompanyConfig> = {
     "filmsreimagined": {
         companyName: "Films Reimagined",
+        abbreviation: "FR",
         tagline: "Wedding films",
         description: "Asian Wedding Photography and Videography",
         logo_light_banner: "filmsreimagined/logo/logo-light-banner.png",
@@ -33,6 +35,7 @@ export const companyConfigs: Record<string, CompanyConfig> = {
     },
     "thehijabiphotographer": {
         companyName: "The Hijabi Photographer",
+        abbreviation: "THP",
         tagline: "Capturing Timeless Moments",
         description: "Asian Wedding Photography and Videography",
         logo_light_banner: "thehijabiphotographer/logo/logo-light-banner.png",
